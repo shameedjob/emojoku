@@ -11,13 +11,15 @@ def cosine_similarity(v1, v2):
     return numpy.dot(v1, v2) / (numpy.linalg.norm(v1) * numpy.linalg.norm(v2))
 
 #Download model
-MODEL_PATH = "/tmp/glove-wiki-gigaword-100/model"
+MODEL_PATH = "/tmp/glove-wiki-gigaword-100/model.kv"
 
 os.makedirs("/tmp/glove-wiki-gigaword-100", exist_ok=True)
 
 if not os.path.exists(MODEL_PATH):
+    os.makedirs("/tmp/glove-wiki-gigaword-100", exist_ok=True)
     m = gensim.downloader.load("glove-wiki-gigaword-100")
     m.save(MODEL_PATH)
+    model = m
 else:
     model = KeyedVectors.load(MODEL_PATH)
 # words = [f[:-1] for f in open("./data/contexto_words_list.txt", "r").readlines()]
