@@ -1,5 +1,5 @@
 from gensim.models import Word2Vec
-from gensim.models import Word2Vec
+from gensim.models import KeyedVectors
 from gensim.utils import simple_preprocess
 import gensim.downloader
 import numpy
@@ -11,13 +11,14 @@ def cosine_similarity(v1, v2):
     return numpy.dot(v1, v2) / (numpy.linalg.norm(v1) * numpy.linalg.norm(v2))
 
 #Download model
-MODEL_PATH = "/tmp/glove-wiki-gigaword-100"
+MODEL_PATH = "/tmp/glove-wiki-gigaword-100/model"
+
+os.makedirs("/tmp/glove-wiki-gigaword-100", exist_ok=True)
 
 if not os.path.exists(MODEL_PATH):
-    model = gensim.downloader.load("glove-wiki-gigaword-100") 
-    model.save(MODEL_PATH)
+    m = gensim.downloader.load("glove-wiki-gigaword-100")
+    m.save(MODEL_PATH)
 else:
-    from gensim.models import KeyedVectors
     model = KeyedVectors.load(MODEL_PATH)
 # words = [f[:-1] for f in open("./data/contexto_words_list.txt", "r").readlines()]
 
