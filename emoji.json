@@ -8021,7 +8021,7 @@
     "number": 1003,
     "code": "U+1F55B",
     "char": "🕛",
-    "name": "twelve o’clock"
+    "name": "twelve o'clock"
   },
   {
     "group": "",
@@ -8037,7 +8037,7 @@
     "number": 1005,
     "code": "U+1F550",
     "char": "🕐",
-    "name": "one o’clock"
+    "name": "one o'clock"
   },
   {
     "group": "",
@@ -8053,7 +8053,7 @@
     "number": 1007,
     "code": "U+1F551",
     "char": "🕑",
-    "name": "two o’clock"
+    "name": "two o'clock"
   },
   {
     "group": "",
@@ -8069,7 +8069,7 @@
     "number": 1009,
     "code": "U+1F552",
     "char": "🕒",
-    "name": "three o’clock"
+    "name": "three o'clock"
   },
   {
     "group": "",
@@ -8085,7 +8085,7 @@
     "number": 1011,
     "code": "U+1F553",
     "char": "🕓",
-    "name": "four o’clock"
+    "name": "four o'clock"
   },
   {
     "group": "",
@@ -8101,7 +8101,7 @@
     "number": 1013,
     "code": "U+1F554",
     "char": "🕔",
-    "name": "five o’clock"
+    "name": "five o'clock"
   },
   {
     "group": "",
@@ -8117,7 +8117,7 @@
     "number": 1015,
     "code": "U+1F555",
     "char": "🕕",
-    "name": "six o’clock"
+    "name": "six o'clock"
   },
   {
     "group": "",
@@ -8133,7 +8133,7 @@
     "number": 1017,
     "code": "U+1F556",
     "char": "🕖",
-    "name": "seven o’clock"
+    "name": "seven o'clock"
   },
   {
     "group": "",
@@ -8149,7 +8149,7 @@
     "number": 1019,
     "code": "U+1F557",
     "char": "🕗",
-    "name": "eight o’clock"
+    "name": "eight o'clock"
   },
   {
     "group": "",
@@ -8165,7 +8165,7 @@
     "number": 1021,
     "code": "U+1F558",
     "char": "🕘",
-    "name": "nine o’clock"
+    "name": "nine o'clock"
   },
   {
     "group": "",
@@ -8181,7 +8181,7 @@
     "number": 1023,
     "code": "U+1F559",
     "char": "🕙",
-    "name": "ten o’clock"
+    "name": "ten o'clock"
   },
   {
     "group": "",
@@ -8197,7 +8197,7 @@
     "number": 1025,
     "code": "U+1F55A",
     "char": "🕚",
-    "name": "eleven o’clock"
+    "name": "eleven o'clock"
   },
   {
     "group": "",
@@ -9421,7 +9421,7 @@
     "number": 1178,
     "code": "U+1F45A",
     "char": "👚",
-    "name": "woman’s clothes"
+    "name": "woman's clothes"
   },
   {
     "group": "",
@@ -9485,7 +9485,7 @@
     "number": 1186,
     "code": "U+1F45E",
     "char": "👞",
-    "name": "man’s shoe"
+    "name": "man's shoe"
   },
   {
     "group": "",
@@ -9525,7 +9525,7 @@
     "number": 1191,
     "code": "U+1F461",
     "char": "👡",
-    "name": "woman’s sandal"
+    "name": "woman's sandal"
   },
   {
     "group": "",
@@ -9541,7 +9541,7 @@
     "number": 1193,
     "code": "U+1F462",
     "char": "👢",
-    "name": "woman’s boot"
+    "name": "woman's boot"
   },
   {
     "group": "",
@@ -9565,7 +9565,7 @@
     "number": 1196,
     "code": "U+1F452",
     "char": "👒",
-    "name": "woman’s hat"
+    "name": "woman's hat"
   },
   {
     "group": "",
@@ -9605,7 +9605,7 @@
     "number": 1201,
     "code": "U+26D1",
     "char": "⛑",
-    "name": "rescue worker’s helmet"
+    "name": "rescue worker's helmet"
   },
   {
     "group": "",
@@ -10669,7 +10669,7 @@
     "number": 1334,
     "code": "U+1F4CC",
     "char": "📌",
-    "name": "pushpin"
+    "name": "push pin"
   },
   {
     "group": "",
@@ -10677,7 +10677,7 @@
     "number": 1335,
     "code": "U+1F4CD",
     "char": "📍",
-    "name": "round pushpin"
+    "name": "round push pin"
   },
   {
     "group": "",
@@ -11429,7 +11429,7 @@
     "number": 1429,
     "code": "U+1F6B9",
     "char": "🚹",
-    "name": "men’s room"
+    "name": "men's room"
   },
   {
     "group": "",
@@ -11437,7 +11437,7 @@
     "number": 1430,
     "code": "U+1F6BA",
     "char": "🚺",
-    "name": "women’s room"
+    "name": "women's room"
   },
   {
     "group": "",
@@ -13605,7 +13605,7 @@
     "number": 1701,
     "code": "U+1F1E8 U+1F1EE",
     "char": "🇨🇮",
-    "name": "flag: Côte d’Ivoire"
+    "name": "flag: Côte d'Ivoire"
   },
   {
     "group": "",
@@ -14973,7 +14973,7 @@
     "number": 1872,
     "code": "U+1F1F8 U+1F1F9",
     "char": "🇸🇹",
-    "name": "flag: São Tomé & Príncipe"
+    "name": "flag: Sao Tome & Principe"
   },
   {
     "group": "",
@@ -15109,7 +15109,7 @@
     "number": 1889,
     "code": "U+1F1F9 U+1F1F7",
     "char": "🇹🇷",
-    "name": "flag: Türkiye"
+    "name": "flag: turkey"
   },
   {
     "group": "",

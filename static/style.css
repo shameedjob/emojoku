@@ -227,6 +227,16 @@ table td {
     line-height: 1;
 }
 
+@keyframes emoji-pop {
+    0%   { transform: scale(0.5); opacity: 0; }
+    70%  { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1);   opacity: 1; }
+}
+
+.cell-input .emoji.pop {
+    animation: emoji-pop 0.3s ease-out forwards;
+}
+
 .cell-input .emoji-label {
     margin: 0;
     font-size: 0.55em;

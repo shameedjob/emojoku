@@ -12,13 +12,14 @@ with open('emoji.json', 'r') as file:
     for emoji in js_dict:
         vecs = []
         try:
-            cleaned = emoji["name"].replace(":", '').replace('-', ' ').strip()
+            cleaned = model.clean_phrase(emoji["name"])
             for w in cleaned.split(" "):
                 vecs.append(model.model[w])
             output = model.calculate(add_words=vecs)
             emoji_map[emoji["char"]] = output['vec']
-            emoji_names[emoji["char"]] = cleaned.lower()
+            emoji_names[emoji["char"]] = cleaned
         except:
+            print(cleaned, emoji['char'])
             continue
 
 def get_emoji_from_line(line):

@@ -19,20 +19,9 @@ def get_daily_puzzle():
     ]
 
 def check_phrase(phrase: str):
-    display = emoji_parse.get_emoji_from_line(phrase)
+    display = emoji_parse.get_emoji_from_line(model.clean_phrase(phrase))
     return display
 
-def phrase_vector(phrase: str):
-    words = phrase.lower().split()
-    vecs = []
-    for w in words:
-        try:
-            vecs.append(model.get_word_vec(w))
-        except KeyError:
-            pass
-    if not vecs:
-        return None
-    return numpy.mean(vecs, axis=0)
 
 def analyze_grid(grid):
     cell_scores = {}
@@ -42,9 +31,9 @@ def analyze_grid(grid):
     for x in range(SIZE):
         for y in range(SIZE):
             cell = grid[x][y]
-            if not cell or not cell.get('phrase'):
+            if not cell or not cell.get('emoji'):
                 continue
-            vec = phrase_vector(cell['phrase'])
+            vec = emoji_parse.emoji_map.get(cell['emoji'])
             if vec is not None:
                 vecs[f'cell{x}-{y}'] = vec
 

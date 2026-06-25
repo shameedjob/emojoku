@@ -9,20 +9,21 @@ function showToast(msg) {
 }
 
 function simColor(value) {
+    // Cell damage: low similarity = muted green, high = red
     const t = Math.min(value / 2, 1);
-    if (t < 0.5) {
-        const s = t / 0.5;
-        const r = Math.round(129 + s * (179 - 129));
-        const g = Math.round(131 + s * (159 - 131));
-        const b = Math.round(132 + s * (59  - 132));
-        return `rgb(${r},${g},${b})`;
-    } else {
-        const s = (t - 0.5) / 0.5;
-        const r = Math.round(179 + s * (230 - 179));
-        const g = Math.round(159 + s * (57  - 159));
-        const b = Math.round(59  + s * (70  - 59 ));
-        return `rgb(${r},${g},${b})`;
-    }
+    const r = Math.round(80 + t * (220 - 80));
+    const g = Math.round(180 - t * (180 - 60));
+    const b = Math.round(80  - t * 60);
+    return `rgb(${r},${g},${b})`;
+}
+
+function healthColor(health) {
+    // Main health display: high = green, low = red
+    const t = health / 12.0;
+    const r = Math.round(220 - t * (220 - 80));
+    const g = Math.round(60  + t * (180 - 60));
+    const b = 60;
+    return `rgb(${r},${g},${b})`;
 }
 
 function setCellScore(row, col, value) {
@@ -65,14 +66,15 @@ function buildShareText(score) {
         rows.push(line);
     }
     rows.push('');
-    rows.push(`EMOJOKU — Score: ${score.toFixed(1)}/10.0`);
+    const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    rows.push(`EMOJOKU ${date} — Health: ${score.toFixed(1)}/12.0`);
     return rows.join('\n');
 }
 
 function showEndGame(win, reason, score) {
     document.getElementById('endgame-title').textContent = win ? 'YOU WIN' : 'GAME OVER';
     document.getElementById('endgame-reason').textContent = reason;
-    document.getElementById('endgame-score').textContent = `Final score: ${score.toFixed(1)}/10.0`;
+    document.getElementById('endgame-score').textContent = `Final health: ${score.toFixed(1)}/12.0`;
     document.getElementById('copy-confirm').style.display = 'none';
 
     const grid = document.getElementById('endgame-grid');
@@ -91,7 +93,10 @@ function showEndGame(win, reason, score) {
 }
 
 function applyGridResult(data) {
-    document.getElementById('similarity-value').textContent = data.score.toFixed(1);
+    const health = Math.max(0, 12.0 - data.score);
+    const healthEl = document.getElementById('similarity-value');
+    healthEl.textContent = health.toFixed(1);
+    healthEl.style.color = healthColor(health);
 
     for (const [cellId, value] of Object.entries(data.cell_scores)) {
         const cell = document.getElementById(cellId);
@@ -107,11 +112,11 @@ function applyGridResult(data) {
     }
 
     if (data.duplicates) {
-        showEndGame(false, 'You placed a duplicate emoji!', data.score);
-    } else if (data.score >= 10.0) {
-        showEndGame(false, 'Similarity reached 10.0 — too many similar emojis!', data.score);
+        showEndGame(false, 'You placed a duplicate emoji!', health);
+    } else if (data.score >= 12.0) {
+        showEndGame(false, 'Health reached 0 — too many similar emojis!', health);
     } else if (data.full) {
-        showEndGame(true, 'You filled the grid without repeating!', data.score);
+        showEndGame(true, 'You filled the grid without repeating!', health);
     }
 }
 
@@ -127,7 +132,7 @@ function sendGrid() {
 
 function insertEmoji(element, emoji, emojiLabel) {
   const h1 = document.createElement('h1');
-  h1.className = 'emoji';
+  h1.className = 'emoji pop';
   h1.textContent = emoji;
 
   console.log(emoji)
@@ -159,6 +164,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         });
 
         elements[i].addEventListener('click', ()=>{
+            if (elements[i].querySelector('.emoji')) return;
 
             var test_phrase = document.getElementById('word-input').value
             document.getElementById('word-input').value = ''
